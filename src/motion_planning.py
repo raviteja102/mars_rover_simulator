@@ -42,7 +42,7 @@ def main():
     parser = argparse.ArgumentParser(description="Mars Rover Simulator") 
     parser.add_argument("--file", type=str, required=True, help="Path to input file")
     args = parser.parse_args()
-    
+    print(f"Read commands from a file: {args.file}")
     commands = read_commands(args.file)
     rover = Rover(Table())
     for command in commands:

@@ -16,7 +16,7 @@ class Rover:
     def place(self , x, y, facing):
         if self.table.is_valid_position(x,y):
             self.x, self.y, self.facing = x,y,facing
-            print(f"Robot placed at ({self.x}, {self.y})facing {self.facing}") 
+            print(f"Robot placed at ({self.x}, {self.y}) facing {self.facing}") 
             
     def report(self):
         if self.x is not None: 
