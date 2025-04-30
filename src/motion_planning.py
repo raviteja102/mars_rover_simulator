@@ -19,6 +19,7 @@ def parse_place_command(command ):
     except ValueError:
         print(f"Not a valid PLACE format:{command}")
         return None 
+    
 def process_command(rover, command):
     if command.startswith("PLACE"):
         result = parse_place_command(command)
@@ -29,8 +30,12 @@ def process_command(rover, command):
         report = rover.report()
         if report:
             print(report)   
-    # TODO:  Add conditions for the other input commands 
-
+    elif command == "MOVE":
+        rover.move()
+    elif command == "RIGHT":
+        rover.turn("right")
+    elif command == "LEFT":
+        rover.turn("left")
 
 def main():
     print("Motion planning of rover started.")
@@ -42,5 +47,6 @@ def main():
     rover = Rover(Table())
     for command in commands:
         process_command(rover, command)        
+
 if __name__ == "__main__":
     main()
