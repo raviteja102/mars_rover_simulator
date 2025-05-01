@@ -5,7 +5,7 @@ The Mars Rover Simulator is a Python-based application developed as part of the 
 
 ## Features
 - Rover can be placed at a specific position and direction on the grid.
-- Move the rover one step forward in the direction it is facing when receives the MOVE command
+- Move the rover one step forward in the direction it is facing when it receives the MOVE command
 - Rotate the rover left or right when it receives command either the  RIGHT or LEFT respectively.
 - Report the current position along  with direction of the rover for the REPORT Command.
 - Ensures it executes any other commands only after rover has been placed else they are ignored
@@ -36,8 +36,10 @@ Directions:
     - WEST:  x decreases
 
 (0,0) is the bottom-left (SOUTH-WEST) corner of the grid.
+
 Example Usage 
 Sequence of Commands 
+```text
 PLACE 
 MOVE 
 RIGHT
@@ -47,9 +49,9 @@ RIGHT
 RIGHT
 LEFT 
 REPORT
-
+```text
 Explanation:
- - PLACE 0,0,NORTH puts the rover in the lower-left corner facing up.
+ - PLACE 0,0,NORTH places the rover at the lower-left corner facing up(NORTH).
  - MOVE will move the rover now to (0, 1) and facing the direction NORTH
  - RIGHT will turn the rover right and now its facing EAST.
  - RIGHT will turn the rover right and now its facing SOUTH.
@@ -73,7 +75,8 @@ mars_rover_simulator/
 │   ├── test_input.txt          # Sample input file for testing
 │   ├── test_input_two.txt      # Another sample input file
 ├── README.md                   # Project documentation
-├── .gitignore                  # Git ignore file
+├── requirements.txt            # Dependencies for the project
+├── .gitignore  
 ```
 ## How to Run
 1. **Clone the Repository**:
@@ -87,11 +90,15 @@ mars_rover_simulator/
 
 3. Run the Simulator: 
 Use the following command to run the simulator with an input file:
+        ```bash
         python3 src/motion_planning.py --file tests/test_input.txt
+
 4. Run Tests: To run the unit tests, use:
         export PYTHONPATH=$(pwd) && pytest tests/ 
         example:
+        ```bash
         export PYTHONPATH=$(pwd)  &&  pytest tests/test_table.py 
+
 Input File Format
 The input file should contain one command per line. 
 Supported commands:
@@ -103,18 +110,18 @@ Supported commands:
 - REPORT - Outputs the current position and direction of the rover.
 
 Example Input
-
+```text
 PLACE 1,2,EAST
 MOVE
 MOVE
 LEFT
 MOVE
 REPORT
-
+```
 Example Output
-
+```text
 3,3,NORTH
-
+```
 
 Code Overview
 - motion_planning.py : Reads commands from an input file and processes each command and interacts with the Rover and Table classes.
