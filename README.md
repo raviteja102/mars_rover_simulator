@@ -91,19 +91,16 @@ mars_rover_simulator/
 
 3. Run the Simulator: 
 Use the following command to run the simulator with an input file:
-        ```text
+        ```
         python3 src/motion_planning.py --file tests/test_input.txt
         ```
 4. Run Tests: To run the unit tests, use:
         export PYTHONPATH=$(pwd) && pytest tests/ 
         example:
-        ```text
+        ```
         export PYTHONPATH=$(pwd)  &&  pytest tests/test_table.py 
         ```
-Input File Format
-The input file should contain one command per line. 
-Supported commands:
-
+- Input File Format: The input file should contain one command per line and supported commands are 
 - PLACE X,Y,FACING - Places the rover at position (X, Y) facing FACING (e.g., NORTH, EAST, SOUTH, WEST).
 - MOVE - Moves the rover one step forward in the direction it is facing.
 - LEFT - Rotates the rover 90 degrees to the left.
