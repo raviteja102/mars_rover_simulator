@@ -14,6 +14,8 @@ The Mars Rover Simulator is a Python-based application developed as part of the 
 
 ##  Grid layout (origin at SOUTH-WEST corner):
 
+```text
+
         ^ NORTH
         |
   4 ┌───┬───┬───┬───┬───┐
@@ -58,6 +60,7 @@ Explanation:
  - REPORT will report the position of rover 0,1,NORTH
 
 ## Project Structure
+```text
 mars_rover_simulator/
 ├── src/
 │   ├── motion_planning.py      # Motion planning will read and process commands 
