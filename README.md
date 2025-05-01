@@ -28,7 +28,7 @@ The Mars Rover Simulator is a Python-based application developed as part of the 
     │   │   │   │   │   │
   0 └───┴───┴───┴───┴───┘
      0   1   2   3   4 → EAST
-
+```
 Directions:
     - NORTH: y increases
     - EAST:  x increases
@@ -74,7 +74,7 @@ mars_rover_simulator/
 │   ├── test_input_two.txt      # Another sample input file
 ├── README.md                   # Project documentation
 ├── .gitignore                  # Git ignore file
-
+```
 ## How to Run
 1. **Clone the Repository**:
    ```bash
