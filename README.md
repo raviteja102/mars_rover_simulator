@@ -49,7 +49,8 @@ RIGHT
 RIGHT
 LEFT 
 REPORT
-```text
+```
+
 Explanation:
  - PLACE 0,0,NORTH places the rover at the lower-left corner facing up(NORTH).
  - MOVE will move the rover now to (0, 1) and facing the direction NORTH
