@@ -4,6 +4,8 @@ Date: 2025-04-29
 Description: Rover class for movements on the 5x5 tabletop.
 """
 import argparse
+import os
+import sys
 from rover import Rover 
 from table import Table 
 
@@ -17,6 +19,9 @@ def read_commands(file_path):
     Returns:
         list: A list of commands as strings, with whitespace stripped.
     """
+    if not os.path.exists(file_path):
+        print(f"No such file or directory: {file_path}",file=sys.stderr)
+        return []
     with open(file_path, 'r') as f: 
         return [line.strip() for line in f if line.strip()]
 
@@ -52,15 +57,22 @@ def process_command(rover, command):
             x, y, facing = result
             rover.place(x, y, facing)
     elif command == "REPORT":
-        report = rover.report()
-        if report:
-            print(report)   
-    elif command == "MOVE":
-        rover.move()
-    elif command == "RIGHT":
-        rover.turn("right")
-    elif command == "LEFT":
-        rover.turn("left")
+        if rover.is_placed:
+            report = rover.report()
+            if report:
+                print(report)
+        else:
+            print("Rover not yet placed")
+    elif command in ["MOVE", "RIGHT", "LEFT"]:
+        if rover.is_placed:
+            if command == "MOVE":
+                rover.move()
+            elif command == "RIGHT":
+                rover.turn("right")
+            elif command == "LEFT":
+                rover.turn("left")
+        else:
+            print("Rover not yet placed")
 
 def main():
     """

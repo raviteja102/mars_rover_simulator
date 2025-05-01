@@ -1,4 +1,4 @@
 # Testing framework
-pytest
+pytest>=7.4.2
 
 # Note: argparse is part of Python's standard library and does not need to be installed.

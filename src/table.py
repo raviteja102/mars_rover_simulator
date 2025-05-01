@@ -19,5 +19,10 @@ class Table:
 
         Returns:
             bool: True if the position is valid (within the grid), False otherwise.
+
+        Raises:
+            TypeError: If x or y is not an integer.
         """
+        if not isinstance(x, int) or not isinstance(y, int):
+            raise TypeError("Input for both x and y must be integers.")
         return 0 <= x < 5 and 0 <= y < 5

@@ -20,7 +20,8 @@ class Rover:
         self.table = table
         self.x = None 
         self.y = None 
-        self.facing = None   
+        self.facing = None
+        self.is_placed = False   
         
     def place(self, x, y, facing):
         """
@@ -31,8 +32,11 @@ class Rover:
             y (int): The y-coordinate of the position.
             facing (str): The direction the rover is facing (e.g., "NORTH", "EAST").
         """
+        if facing not in self.DIRECTIONS:
+            return  # Ignore invalid facing direction
         if self.table.is_valid_position(x, y):
             self.x, self.y, self.facing = x, y, facing
+            self.is_placed = True
         #    print(f"Robot placed at ({self.x}, {self.y}) facing {self.facing}") 
             
     def report(self):
@@ -43,7 +47,7 @@ class Rover:
             str: A string representing the rover's position and direction (e.g., "1,2,NORTH").
             None: If the rover is not placed, returns None.
         """
-        if self.x is not None and self.y is not None and self.facing:
+        if self.is_placed:
             return f"{self.x},{self.y},{self.facing}"
         return "Rover not yet placed"
     
@@ -52,7 +56,7 @@ class Rover:
         Moves the rover one step forward in the direction it is currently facing, 
         if the new position is within the boundaries of the table.
         """
-        if self.facing is None:
+        if not self.is_placed:
             return 
         move_map = {
             "NORTH": (0, 1),
