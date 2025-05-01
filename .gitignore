@@ -1,0 +1,18 @@
+## Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+*.env
+.env
+venv/
+build/
+dist/
+.cache/
+.DS_Store
+
+# Test artifacts
+coverage.*
+.cache/
+htmlcov/
+.pytest_cache/
