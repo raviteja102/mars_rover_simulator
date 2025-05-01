@@ -91,15 +91,15 @@ mars_rover_simulator/
 
 3. Run the Simulator: 
 Use the following command to run the simulator with an input file:
-        ```bash
+        ```text
         python3 src/motion_planning.py --file tests/test_input.txt
-
+        ```
 4. Run Tests: To run the unit tests, use:
         export PYTHONPATH=$(pwd) && pytest tests/ 
         example:
-        ```bash
+        ```text
         export PYTHONPATH=$(pwd)  &&  pytest tests/test_table.py 
-
+        ```
 Input File Format
 The input file should contain one command per line. 
 Supported commands:
